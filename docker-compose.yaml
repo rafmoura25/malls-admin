@@ -3,7 +3,7 @@ version: '3.1'
 services:
   db:
     build: .
-    container_name: conexblog-db
+    container_name: mall-db
     restart: always
     tty: true
     ports:
@@ -12,4 +12,4 @@ services:
       - .docker/dbdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=conexblog
+      - POSTGRES_DB=mall
