@@ -6,7 +6,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import path from 'node:path'
 import { AppResolver } from './app.resolver'
-import { MallsModule } from './malls/malls.module';
+import { MallsModule } from './malls/malls.module'
 
 @Module({
   imports: [
