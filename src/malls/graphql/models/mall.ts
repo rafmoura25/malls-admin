@@ -9,7 +9,7 @@ export class Mall {
   name: string
 
   @Field()
-  adress: string
+  address: string
 
   @Field()
   isActive: boolean

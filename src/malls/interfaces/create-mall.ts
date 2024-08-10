@@ -1,4 +1,5 @@
 export interface ICreateMall {
   name: string
-  email: string
+  adress: string
+  isActive: boolean
 }
