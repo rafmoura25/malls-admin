@@ -12,3 +12,23 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Mall {
+  id        String    @id @default(uuid())
+  name      String
+  address   String
+  stores    Store[]
+  isActive  Boolean
+  createdAt DateTime  @default(now())
+}
+
+model Store {
+  id         String    @id @default(uuid())
+  name       String
+  number     String
+  category   String
+  mall       Mall      @relation(fields: [mallId], references: [id])
+  mallId     String
+  isActive   Boolean
+  createdAt  DateTime  @default(now())
+}
