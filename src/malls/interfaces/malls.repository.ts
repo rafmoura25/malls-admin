@@ -21,7 +21,7 @@ export interface IMallsRepository {
   sortableFields: string[]
 
   create(data: ICreateMall): Promise<Mall>
-  update(author: Mall): Promise<Mall>
+  update(mall: Mall): Promise<Mall>
   delete(id: string): Promise<Mall>
   findById(id: string): Promise<Mall>
   search(params: SearchParams): Promise<SearchResult>
