@@ -52,6 +52,17 @@ query {
 }
 ```
 
+## Database and GraphQL local
+```bash
+# run prisma studio
+pnpm prisma studio
+http://localhost:5555/
+
+# graphQL playground
+http://localhost:3000/graphql
+
+```
+
 # How I Developed the Project
 
 1. Project Setup with NestJS: I created the project using NestJS, following the official [doc](https://docs.nestjs.com/).
