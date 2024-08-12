@@ -27,3 +27,13 @@ type Query {
   hello: String!
   malls(page: Int, perPage: Int, sort: String, sortDir: String, filter: String): SearchMallsResult!
 }
+
+type Mutation {
+  createMall(data: CreateMallInput!): Mall!
+}
+
+input CreateMallInput {
+  name: String!
+  address: String!
+  isActive: Boolean!
+}
