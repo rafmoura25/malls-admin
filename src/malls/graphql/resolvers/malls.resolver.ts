@@ -1,13 +1,26 @@
-import { Query, Resolver } from '@nestjs/graphql'
+import { Args, Query, Resolver } from '@nestjs/graphql'
 import { Mall } from '../models/mall'
-import { PrismaService } from '@/database/prisma/prisma.service'
+import { ListMallUsecase } from '@/malls/usecases/list-mall.usecase'
+import { Inject } from '@nestjs/common'
+import { SearchParamsArgs } from '../args/search-params.args'
+import { SearchMallsResult } from '../models/search-malls-result'
 
 @Resolver(() => Mall)
 export class MallsResolver {
-  constructor(private prisma: PrismaService) {}
+  @Inject(ListMallUsecase.Usecase)
+  private listMallUseCase: ListMallUsecase.Usecase
 
-  @Query(() => [Mall])
-  malls() {
-    return this.prisma.mall.findMany()
+  @Query(() => SearchMallsResult)
+  async malls(
+    @Args() { page, perPage, sort, sortDir, filter }: SearchParamsArgs,
+  ) {
+    const list = await this.listMallUseCase.execute({
+      page,
+      perPage,
+      sort,
+      sortDir,
+      filter,
+    })
+    return list
   }
 }
