@@ -52,6 +52,25 @@ query {
 }
 ```
 
+## Mutation GraphQL example
+
+```bash
+mutation {
+  createMall(
+    data : {
+      name: "Mall Test"
+      address: "Av. Test, 101"
+      isActive: true
+    }) {
+    id
+    name
+    address
+    isActive
+    createdAt
+  }
+}
+```
+
 ## Database and GraphQL local
 ```bash
 # run prisma studio
